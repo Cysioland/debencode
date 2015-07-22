@@ -37,9 +37,9 @@ namespace dbnc
         {
             NONE,
             STRING,
-            INT,
+            INTEGER,
             LIST,
-            DICT
+            DICTIONARY
         };
         
         value();                                                                // Default constructor
@@ -52,7 +52,7 @@ namespace dbnc
         void set( long );                                                       // Set the value's value to an integer (clears any previous type)
         void push( value& );                                                    // Push a value into this as a list; if it is not already a list, clears any
                                                                                 // previous type first
-        void push( std::string, value& );                                       // Push a value into this as a dictionary with a string key; if it is not
+        void set( std::string, value& );                                        // Place a value into this as a dictionary with a string key; if it is not
                                                                                 // already a dictionary, clears any previous type first
         
         type getType();
