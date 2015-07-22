@@ -22,6 +22,7 @@ namespace dbnc
     public:
         enum type
         {
+            NONE,
             STRING,
             INT,
             LIST,
@@ -41,6 +42,8 @@ namespace dbnc
         void push( std::string, value& );                                       // Push a value into this as a dictionary with a string key; if it is not
                                                                                 // already a dictionary, clears any previous type first
         
+        type getType();
+        
         std::string getString();                                                // Get the string value; throws dbnc::WRONG_TYPE if it is not a string
         long getInteger();                                                      // Get the integer value; throws dbnc::WRONG_TYPE if it is not an integer
         std::pair< std::vector< value >::iterator,
@@ -55,14 +58,18 @@ namespace dbnc
         void serializeJSON(    std::ostream& );                                 // Serialize the contents as JSON to the supplied output stream
         void serializeXML(     std::ostream& );                                 // Serialize the contents as XML to the supplied output stream
     protected:
-        type type;
+        type val_type;
         union
         {
+            void*                           void_val;
+            
             std::string*                    string_val;
             long                            int_val;
             std::vector< value >*           list_val;
             std::map< std::string, value >* dict_val;
         };
+        
+        void clearCurrent();
     private:
     };
 }
