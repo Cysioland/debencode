@@ -38,13 +38,15 @@ namespace dbnc
     {
         clearCurrent();
         
-        
+        val_type = STRING;
+        this -> string_val = new std::string( string_val );
     }
     void value::set( long int_val )
     {
         clearCurrent();
         
-        
+        val_type = INTEGER;
+        this -> int_val = int_val;
     }
     void value::push( value& val )
     {
@@ -71,26 +73,42 @@ namespace dbnc
     
     value::type value::getType()
     {
-        
+        return val_type;
     }
     
     std::string value::getString()
     {
+        if( val_type != STRING )
+            throw WRONG_TYPE;
         
+        return *string_val;
     }
     long value::getInteger()
     {
+        if( val_type != INTEGER )
+            throw WRONG_TYPE;
         
+        return int_val;
     }
     std::pair< std::vector< value >::iterator,
                std::vector< value >::iterator > value::getList()
     {
+        if( val_type != LIST )
+            throw WRONG_TYPE;
         
+        return std::pair< std::vector< value >::iterator,
+                          std::vector< value >::iterator >( list_val -> begin(),
+                                                            list_val -> end() );
     }
     std::pair< std::map< std::string, value >::iterator,
                std::map< std::string, value >::iterator > value::getDictionary()
     {
+        if( val_type != DICTIONARY )
+            throw WRONG_TYPE;
         
+        return std::pair< std::map< std::string, value >::iterator,
+                          std::map< std::string, value >::iterator >( dict_val -> begin(),
+                                                                      dict_val -> end() );
     }
     
     void value::serializeBencode( std::ostream& stream )
