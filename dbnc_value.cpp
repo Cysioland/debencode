@@ -1,4 +1,17 @@
+/*
+ * dbnc.cpp
+ *
+ * Implementation/definitions for the dbnc::value class
+ *
+ * debencode copyright (C) 2015 Joseph Durel [ jadematrix.art@gmail.com ]
+ * debencode homepage: [ github.com/JadeMatrix/debencode ]
+ */
+
+/* INCLUDES *******************************************************************//******************************************************************************/
+
 #include "debencode.hpp"
+
+/* DEFINITIONS ****************************************************************//******************************************************************************/
 
 namespace dbnc
 {

@@ -1,10 +1,23 @@
+/*
+ * debencode.hpp
+ *
+ * Header containing declarations for decoding & encoding Bencode
+ *
+ * debencode copyright (C) 2015 Joseph Durel [ jadematrix.art@gmail.com ]
+ * debencode homepage: [ github.com/JadeMatrix/debencode ]
+ */
+
 #ifndef DEBENCODE_HPP
 #define DEBENCODE_HPP
+
+/* INCLUDES *******************************************************************//******************************************************************************/
 
 #include <iostream>
 #include <string>
 #include <vector>
 #include <map>
+
+/* DECLARATIONS ***************************************************************//******************************************************************************/
 
 namespace dbnc
 {

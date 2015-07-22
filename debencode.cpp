@@ -1,6 +1,19 @@
+/*
+ * debencode.cpp
+ *
+ * Standalone command-line debencode utility
+ *
+ * debencode copyright (C) 2015 Joseph Durel [ jadematrix.art@gmail.com ]
+ * debencode homepage: [ github.com/JadeMatrix/debencode ]
+ */
+
+/* INCLUDES *******************************************************************//******************************************************************************/
+
 #include "debencode.hpp"
 
-#ifdef DEBENCODE_STANDALONE
+/* DEFINITIONS ****************************************************************//******************************************************************************/
+
+// #ifdef DEBENCODE_STANDALONE
 
 int main( int argc, char* argv[] )
 {
@@ -9,6 +22,6 @@ int main( int argc, char* argv[] )
     return 0;
 }
 
-#endif
+// #endif
 
 
