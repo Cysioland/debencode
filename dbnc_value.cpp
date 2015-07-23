@@ -17,16 +17,15 @@ namespace dbnc
 {
     value::value()
     {
-        val_type = NONE;
-        void_val = 0x00;
+        clearCurrent();
     }
     value::value( std::istream& stream )
     {
-        
+        // IMPLEMENT: istream constructor
     }
     value::value( const value& original )
     {
-        
+        // IMPLEMENT: Copy constructor
     }
     
     value::~value()
@@ -113,15 +112,15 @@ namespace dbnc
     
     void value::serializeBencode( std::ostream& stream )
     {
-        
+        // IMPLEMENT: Bencode serializer
     }
     void value::serializeJSON( std::ostream& stream )
     {
-        
+        // IMPLEMENT: JSON serializer
     }
     void value::serializeXML( std::ostream& stream )
     {
-        
+        // IMPLEMENT: XML serializer
     }
     
     void value::clearCurrent()
@@ -145,6 +144,7 @@ namespace dbnc
         }
         
         val_type = NONE;
+        void_val = 0x00;
     }
 }
 
