@@ -25,7 +25,29 @@ namespace dbnc
     }
     value::value( const value& original )
     {
-        // IMPLEMENT: Copy constructor
+        val_type = original.val_type;
+        
+        switch( val_type )
+        {
+        case NONE:
+            clearCurrent();
+            break;
+        case STRING:
+            string_val = new std::string( *original.string_val );
+            break;
+        case INTEGER:
+            int_val = original.int_val;
+            break;
+        case LIST:
+            list_val = new std::vector< value >( *original.list_val );
+            break;
+        case DICTIONARY:
+            dict_val = new std::map< std::string, value >( *original.dict_val );
+            break;
+        default:
+            throw WRONG_TYPE;
+            break;
+        }
     }
     
     value::~value()
